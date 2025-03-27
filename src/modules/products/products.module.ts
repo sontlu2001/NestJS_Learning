@@ -7,6 +7,16 @@ import { Product } from 'src/entities/Product';
 @Module({
   imports: [TypeOrmModule.forFeature([Product])],
   controllers: [ProductsController],
-  providers: [ProductsService],
+  providers: [ProductsService, 
+    {
+    provide: 'newService',
+    useValue: {
+      name: 'newService',
+      method: () => {
+        return 'newService';
+      },
+    },
+    }
+],
 })
 export class ProductsModule {}

@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './modules/products/products.module';
 import { Product } from './entities/Product';
+import { PrismaModule } from './prisma/prisma.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { Product } from './entities/Product';
       synchronize: true,
     }),
     ProductsModule,
+    PrismaModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
